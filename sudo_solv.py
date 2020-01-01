@@ -20,7 +20,10 @@ This file will solve any sudoku by puzzle using the backtracking algorithm
 
 '''
 
-
+#TODO: Create/Display sudoku board
+#TODO: Find an empty cell
+#TODO: Find a valid number for cell
+#TODO: Use backtracking if number for cell is not valid
 
 board = [
     [8, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -31,10 +34,25 @@ board = [
     [0, 0, 0, 1, 0, 0, 0, 3, 0], 
     [0, 0, 1, 0, 0, 0, 0, 6, 8],
     [0, 0, 8, 5, 0, 0, 0, 1, 0],
-    [0, 9, 0, 0, 0, 0, 4, 0, 0], 
+    [0, 9, 0, 0, 0, 0, 4, 0, 0]
 ]
 
-def create_board(board): 
+
+def create_board(bo): 
     ''' This method will create the board '''
-    # TODO: Display a sudoku board in 
-  
+    for i in range(len(bo)):
+        if i % 3 == 0 and i != 0:
+            print("- - - - - - - - - - - - - ")
+
+        for j in range(len(bo[0])):
+            if j % 3 == 0 and  j != 0:
+                print(" | ", end = "")
+            
+            if j == 8:
+                print(bo[i][j])
+            else: 
+                print(str(bo[i][j]) + " ", end="")
+
+
+
+create_board(board)
