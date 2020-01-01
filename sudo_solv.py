@@ -1,49 +1,40 @@
 ''' 
-This file will solve any sudoku puzzle
+This file will solve any sudoku by puzzle using the backtracking algorithm
  
  Rules:
  1. Each column must have exactly the numbers 1-9
  2. Each row must have exactly the numbers 1-9
  3. Each box must have exactly the numbers 1-9
 
-
  Edge Cases:
  1. User could enter zero
 
+ Algorithm:
+1. Find empty space
+2. Attempt to place a number between 1-9 
+3. Check to see if that digit is valid
+4. 
+    a. If number is valid repeat steps
+    b. If it is not valid reset squeare and go to step 3
+5. Once the board is full display that the sudoku puzzle is solved
+
 '''
 
-class Sudoku_Solver():
-
-    def __init__(self):
-        self.digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        self.rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
-
-    def row(self):
-        '''This method will check to see if the row has all numbers'''
-        # TODO: Check to see if all numbers are filled in the row
-        # TODO: 
-
-    def column(self):
-        '''This method will check to see if the columnt has all numbers'''
-        # TODO: Check to see if all numbers are filled in the row
-        # TODO: 
 
 
-    def box(self):
-        '''This method will check to see if the box has all numbers'''
-        # TODO: Check to see if all numbers are filled in the row
-        # TODO: 
+board = [
+    [8, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 3, 6, 0, 0, 0, 0, 0],
+    [0, 7, 0, 0, 9, 0, 2, 0, 0], 
+    [0, 5, 0, 0, 0, 7, 0, 0, 0],
+    [0, 0, 0, 0, 4, 5, 7, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0, 3, 0], 
+    [0, 0, 1, 0, 0, 0, 0, 6, 8],
+    [0, 0, 8, 5, 0, 0, 0, 1, 0],
+    [0, 9, 0, 0, 0, 0, 4, 0, 0], 
+]
 
-
-def create_grid(): 
-    ''' This method will create a grid '''
-    # TODO: Create a grid
-    row = Sudoku_Solver.row()
-    column = Sudoku_Solver.column() 
-    for i in row:
-        for j in column:
-            return None
-    return None
-
-
-
+def create_board(board): 
+    ''' This method will create the board '''
+    # TODO: Display a sudoku board in 
+  
