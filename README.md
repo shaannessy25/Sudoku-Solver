@@ -3,10 +3,10 @@ ___
 ## Mission
 This application will correctly solve any sudoku puzzle in an efficient matter. 
 
-### Rules:
+## Rules:
 1. Each row, column, and nonet can contain each number 1-9 exactly once.
 2. The sum of all numbers in any nonet, row, or column must match the small number printed in its corner. The sum is equal to 45. 
- ### Algorithm
+## Algorithm
 1. Find empty space
 2. Attempt to place a number between 1-9 
 3. Check to see if that digit is valid
@@ -16,3 +16,8 @@ This application will correctly solve any sudoku puzzle in an efficient matter.
 5. Once the board is full display that the sudoku puzzle is solved
 
 
+## How it will look
+
+![picture](/screenshots/board.png)  
+
+![picture](/screenshots/terminal.png)  

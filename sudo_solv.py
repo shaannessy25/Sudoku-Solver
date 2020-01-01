@@ -20,11 +20,6 @@ This file will solve any sudoku by puzzle using the backtracking algorithm
 
 '''
 
-#TODO: Create/Display sudoku board
-#TODO: Find an empty cell
-#TODO: Find a valid number for cell
-#TODO: Use backtracking if number for cell is not valid
-
 board = [
     [8, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 3, 6, 0, 0, 0, 0, 0],
@@ -105,4 +100,5 @@ def valid(bo, num, pos):
 create_board(board)
 solve(board)
 print('______________________')
+print("Here's your solution!")
 create_board(board)
