@@ -3,7 +3,7 @@ import pygame
 from sudo_solv import solve, valid
 import time
 pygame.font.init()
-
+clock = pygame.time.Clock()
 
 class Grid:
     board = [
@@ -225,3 +225,4 @@ def main():
 
 main()
 pygame.quit()
+quit()
