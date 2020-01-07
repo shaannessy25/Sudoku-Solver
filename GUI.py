@@ -8,7 +8,8 @@ display_width = 540
 display_height = 600
 black = (0, 0, 0)
 white = (255, 255, 255)
-red = (255, 0, 0)
+red = (180, 0, 0)
+bright_red = (255, 0, 0)
 
 gameDisplay = pygame.display.set_mode((display_width, display_height))
 # largeText = pygame.font.Font('freesansbold.ttf',115)
@@ -167,8 +168,22 @@ def format_time(secs):
 def text_objects(text, font):
     textSurface = font.render(text, True, black)
     return textSurface, textSurface.get_rect()
+
+def button(msg, x, y, w, h, ic, ac):
+    mouse = pygame.mouse.get_pos()
+
+    if x + w > mouse[0] > x and y + h > mouse[1] > y:
+        pygame.draw.rect(gameDisplay, ic, (x, y, w, h))
+    else: 
+        pygame.draw.rect(gameDisplay, ac, (x, y, w, h))
     
-def game_intro():
+    smallText = pygame.font.Font("freesansbold.ttf", 40)
+    TextSurf, TextRect = text_objects('msg', smallText)
+    TextRect.center = ((x + (w/2)), (y + (h/2)))
+    gameDisplay.blit(TextSurf, TextRect)
+    
+
+def start_menu():
     intro = True
 
     while intro:
@@ -181,10 +196,22 @@ def game_intro():
         TextSurf, TextRect = text_objects("Welcome to Sudoku", largeText)
         TextRect.center = ((display_width/2), (display_height/2))
         gameDisplay.blit(TextSurf, TextRect)
+        pygame.draw.rect(gameDisplay, red, (130, 325, 270, 55))
+        mouse = pygame.mouse.get_pos()
+
+        if 130 + 270 > mouse[0] > 130 and 325 + 55 > mouse[1] > 325:
+            pygame.draw.rect(gameDisplay, bright_red, (130, 325, 270, 55))
+        else: 
+            pygame.draw.rect(gameDisplay, red, (130, 325, 270, 55))
+        
+        smallText = pygame.font.Font("freesansbold.ttf", 40)
+        TextSurf, TextRect = text_objects('Start Puzzle', smallText)
+        TextRect.center = ((130 + (270/2)), (325 + (55/2)))
+        gameDisplay.blit(TextSurf, TextRect)
         pygame.display.update()
+        clock.tick(15)
 
 def main():
-    intro = False
     win = pygame.display.set_mode((540,600))
     pygame.display.set_caption("Sudoku is working")
     icon = pygame.image.load('icons.png')
@@ -252,7 +279,7 @@ def main():
 
 
 
-game_intro()
+start_menu()
 main()
 pygame.quit()
 quit()
