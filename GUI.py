@@ -4,7 +4,14 @@ from sudo_solv import solve, valid
 import time
 pygame.font.init()
 clock = pygame.time.Clock()
+display_width = 540
+display_height = 600
+black = (0, 0, 0)
+white = (255, 255, 255)
+red = (255, 0, 0)
 
+gameDisplay = pygame.display.set_mode((display_width, display_height))
+# largeText = pygame.font.Font('freesansbold.ttf',115)
 class Grid:
     board = [
     [8, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -157,10 +164,31 @@ def format_time(secs):
     mat = " " + str(minute) + ":" + str(sec)
     return mat
 
+def text_objects(text, font):
+    textSurface = font.render(text, True, black)
+    return textSurface, textSurface.get_rect()
+    
+def game_intro():
+    intro = True
+
+    while intro:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+        gameDisplay.fill(white)
+        largeText = pygame.font.Font('freesansbold.ttf', 40)
+        TextSurf, TextRect = text_objects("Welcome to Sudoku", largeText)
+        TextRect.center = ((display_width/2), (display_height/2))
+        gameDisplay.blit(TextSurf, TextRect)
+        pygame.display.update()
 
 def main():
+    intro = False
     win = pygame.display.set_mode((540,600))
-    pygame.display.set_caption("Sudoku")
+    pygame.display.set_caption("Sudoku is working")
+    icon = pygame.image.load('icons.png')
+    pygame.display.set_icon(icon)
     board = Grid(9, 9, 540, 540)
     key = None
     run = True
@@ -223,6 +251,8 @@ def main():
         pygame.display.update()
 
 
+
+game_intro()
 main()
 pygame.quit()
 quit()
