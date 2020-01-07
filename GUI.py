@@ -169,16 +169,20 @@ def text_objects(text, font):
     textSurface = font.render(text, True, black)
     return textSurface, textSurface.get_rect()
 
-def button(msg, x, y, w, h, ic, ac):
+def button(msg, x, y, w, h, ic, ac, action=None):
     mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
 
     if x + w > mouse[0] > x and y + h > mouse[1] > y:
         pygame.draw.rect(gameDisplay, ic, (x, y, w, h))
+        if click[0] == 1 and action != None:
+            if action == 'play':
+                main()
     else: 
         pygame.draw.rect(gameDisplay, ac, (x, y, w, h))
     
     smallText = pygame.font.Font("freesansbold.ttf", 40)
-    TextSurf, TextRect = text_objects('msg', smallText)
+    TextSurf, TextRect = text_objects(msg, smallText)
     TextRect.center = ((x + (w/2)), (y + (h/2)))
     gameDisplay.blit(TextSurf, TextRect)
     
@@ -196,18 +200,9 @@ def start_menu():
         TextSurf, TextRect = text_objects("Welcome to Sudoku", largeText)
         TextRect.center = ((display_width/2), (display_height/2))
         gameDisplay.blit(TextSurf, TextRect)
-        pygame.draw.rect(gameDisplay, red, (130, 325, 270, 55))
-        mouse = pygame.mouse.get_pos()
 
-        if 130 + 270 > mouse[0] > 130 and 325 + 55 > mouse[1] > 325:
-            pygame.draw.rect(gameDisplay, bright_red, (130, 325, 270, 55))
-        else: 
-            pygame.draw.rect(gameDisplay, red, (130, 325, 270, 55))
-        
-        smallText = pygame.font.Font("freesansbold.ttf", 40)
-        TextSurf, TextRect = text_objects('Start Puzzle', smallText)
-        TextRect.center = ((130 + (270/2)), (325 + (55/2)))
-        gameDisplay.blit(TextSurf, TextRect)
+        button('Start Puzzle', 130, 325, 270, 55, red, bright_red, 'play')
+        # pygame.draw.rect(gameDisplay, red, (130, 325, 270, 55))
         pygame.display.update()
         clock.tick(15)
 
