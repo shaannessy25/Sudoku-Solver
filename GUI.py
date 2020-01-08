@@ -10,6 +10,8 @@ black = (0, 0, 0)
 white = (255, 255, 255)
 red = (180, 0, 0)
 bright_red = (255, 0, 0)
+green = (0, 200, 0)
+bright_green = (0, 255, 0)
 
 gameDisplay = pygame.display.set_mode((display_width, display_height))
 # largeText = pygame.font.Font('freesansbold.ttf',115)
@@ -178,6 +180,8 @@ def button(msg, x, y, w, h, ic, ac, action=None):
         if click[0] == 1 and action != None:
             if action == 'play':
                 main()
+            # if action == 'solve':
+            #     solve()
     else: 
         pygame.draw.rect(gameDisplay, ac, (x, y, w, h))
     
@@ -201,12 +205,13 @@ def start_menu():
         TextRect.center = ((display_width/2), (display_height/2))
         gameDisplay.blit(TextSurf, TextRect)
 
-        button('Start Puzzle', 130, 325, 270, 55, red, bright_red, 'play')
-        # pygame.draw.rect(gameDisplay, red, (130, 325, 270, 55))
+        button('Start Puzzle', 130, 325, 270, 55, bright_red, red, 'play')
+        
         pygame.display.update()
         clock.tick(15)
 
 def main():
+   
     win = pygame.display.set_mode((540,600))
     pygame.display.set_caption("Sudoku is working")
     icon = pygame.image.load('icons.png')
@@ -217,7 +222,6 @@ def main():
     start = time.time()
     strikes = 0
     while run:
-
         play_time = round(time.time() - start)
 
         for event in pygame.event.get():
@@ -268,11 +272,9 @@ def main():
 
         if board.selected and key != None:
             board.sketch(key)
-
         redraw_window(win, board, play_time, strikes)
+        # button('Solve', 180, 555, 110, 30, bright_green, green, 'solve')
         pygame.display.update()
-
-
 
 start_menu()
 main()
