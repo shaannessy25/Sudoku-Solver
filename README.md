@@ -1,7 +1,7 @@
 # Sudoku Solver
 ___
 ## Mission
-This application will correctly solve any sudoku puzzle in an efficient matter. 
+This application will correctly solve any sudoku puzzle in an efficient matter. There also will be a playable game that the user can play
 
 ## Rules:
 1. Each row, column, and nonet can contain each number 1-9 exactly once.
@@ -21,3 +21,10 @@ This application will correctly solve any sudoku puzzle in an efficient matter.
 ![picture](/screenshots/board.png)  
 
 ![picture](/screenshots/terminal.png)  
+
+
+## Getting Started
+1. Download Repository
+2. Go to build directory
+3. Run GUI.exe
+

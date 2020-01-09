@@ -1,5 +1,8 @@
 # GUI.py
 import pygame
+from pygame.locals import *
+from OpenGL.GL import *
+from OpenGL.GLU import *
 from sudo_solv import solve, valid
 import time
 pygame.font.init()
@@ -213,7 +216,7 @@ def start_menu():
 def main():
    
     win = pygame.display.set_mode((540,600))
-    pygame.display.set_caption("Sudoku is working")
+    pygame.display.set_caption("Sudoku")
     icon = pygame.image.load('icons.png')
     pygame.display.set_icon(icon)
     board = Grid(9, 9, 540, 540)
